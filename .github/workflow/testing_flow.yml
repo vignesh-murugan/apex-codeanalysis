@@ -1,0 +1,25 @@
+name: Testing workflow
+
+on:
+  workflow_dispatch
+
+
+jobs:
+  test-a:
+  runs-on: ubuntu-latest
+
+  steps:
+    - run: echo "test-a"
+
+  test-b:
+  runs-on: ubuntu-latest
+
+  steps:
+    - run: echo "test-b"
+
+  test-c:
+  needs: [test-a,test-b]
+  runs-on: ubuntu-latest
+
+  steps:
+    - run: echo "test-c"
